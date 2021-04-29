@@ -1,9 +1,14 @@
+from abc import abstractmethod
+
+
 class LeitnerCardData:
     def __init__(self):
         pass
 
-    def id(self) -> str:
-        return None
+    @abstractmethod
+    def id(self) -> str: ...
 
-    def sort_key(self) -> str:
-        return None
+    @abstractmethod
+    def sort_key(self) -> str: ...
+    
+
