@@ -1,8 +1,8 @@
 import math
 
-from cherokee.language.leitner.LeitnerCardStats import LeitnerCardStats
-from cherokee.language.leitner.LeitnerDeck import LeitnerDeck
-from cherokee.language.leitner.LeitnerSkillLevel import LeitnerSkillLevel
+from LeitnerCardStats import LeitnerCardStats
+from LeitnerDeck import LeitnerDeck
+from LeitnerSkillLevel import LeitnerSkillLevel
 
 
 class LeitnerDeckStats:
