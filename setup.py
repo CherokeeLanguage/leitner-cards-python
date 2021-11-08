@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setuptools.setup(
         name="leitner_cards",
-        version="2021.04.30.01",
+        version="2021.11.07.01",
         description="Basic Leitner Cards Implementation",
         long_description=README,
         long_description_content_type="text/markdown",
@@ -22,5 +22,5 @@ setuptools.setup(
                 "Programming Language :: Python"
         ],
         packages=setuptools.find_packages(),
-        python_requires=">=3.7"
+        python_requires=">=3.9"
 )

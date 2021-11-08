@@ -1,0 +1,32 @@
+name: leitner-cards-python
+channels:
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1
+  - ca-certificates=2021.4.13
+  - certifi=2020.12.5
+  - ld_impl_linux-64=2.33.1
+  - libffi=3.3
+  - libgcc-ng=9.1.0
+  - libstdcxx-ng=9.1.0
+  - ncurses=6.2
+  - openssl=1.1.1k
+  - pip=21.0.1
+  - python=3.9.4
+  - readline=8.1
+  - setuptools=52.0.0
+  - sqlite=3.35.4
+  - tk=8.6.10
+  - tzdata=2020f
+  - wheel=0.36.2
+  - xz=5.2.5
+  - zlib=1.2.11
+  - pip:
+    - dataclasses-json==0.5.3
+    - marshmallow==3.11.1
+    - marshmallow-enum==1.5.1
+    - mypy-extensions==0.4.3
+    - pydub==0.25.1
+    - stringcase==1.2.0
+    - typing-extensions==3.7.4.3
+    - typing-inspect==0.6.0
