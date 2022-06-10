@@ -28,9 +28,9 @@ class LeitnerSkillLevel(Enum):
         return level
 
     @classmethod
-    def get_next(cls, level):
+    def get_next(cls, level=None) -> 'LeitnerSkillLevel':
         if not level:
-            return LeitnerSkillLevel.Newbie
+            return LeitnerSkillLevel.NEWBIE
         return level.next()
 
     def get_achievement_points(self) -> int:

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from functools import total_ordering
 
 from .LeitnerCardStats import LeitnerCardStats
@@ -10,8 +12,8 @@ class LeitnerCard:
 
     def __init__(self):
         self.stats: LeitnerCardStats = LeitnerCardStats()
-        self.deck: LeitnerDeck = None
-        self.data: LeitnerCardData = None
+        self.deck: LeitnerDeck | None = None
+        self.data: LeitnerCardData | None = None
 
     def __eq__(self, other) -> bool:
         return self.sort_key() == other.sort_key()

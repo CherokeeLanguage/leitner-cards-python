@@ -6,12 +6,12 @@ class LeitnerCardUtils:
     def __init__(self):
         pass
 
-    pimsleur_intervals_sec: list = None
-    sm2_intervals_sec: list = None
-    sm2_intervals_days: list = None
+    pimsleur_intervals_sec: list[float] = None
+    sm2_intervals_sec: list[float] = None
+    sm2_intervals_days: list[int] = None
 
     @classmethod
-    def get_next_interval(cls, correct_in_a_row: int)->float:
+    def get_next_interval(cls, correct_in_a_row: int) -> float:
         """
         Pimsleur staggered intervals (powers of 5) seconds
         :param correct_in_a_row:
@@ -24,7 +24,7 @@ class LeitnerCardUtils:
         return cls.pimsleur_intervals_sec[correct_in_a_row]
 
     @classmethod
-    def get_next_session_interval_secs(cls, box: int)->float:
+    def get_next_session_interval_secs(cls, box: int) -> float:
         """
         SM2 staggered intervals (powers of 1.7) days as seconds
         :param box:
@@ -37,7 +37,7 @@ class LeitnerCardUtils:
         return cls.sm2_intervals_sec[box]
 
     @classmethod
-    def get_next_session_interval_days(cls, box: int)->int:
+    def get_next_session_interval_days(cls, box: int) -> int:
         """
         SM2 staggered intervals (powers of 1.7) days. (Rounded up to the next whole day).
         :param box:
