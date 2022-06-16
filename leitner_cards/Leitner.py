@@ -1,6 +1,6 @@
 import math
 from abc import abstractmethod
-from collections import MutableSequence
+from collections.abc import MutableSequence
 from enum import Enum
 from functools import total_ordering
 from typing import Iterable
@@ -8,7 +8,7 @@ from typing import overload
 
 
 class LeitnerSkillLevel(Enum):
-    def __init__(self):
+    def __init__(self, english: str, level: int):
         pass
 
     NEWBIE = ("Newbie", 0)
@@ -406,4 +406,4 @@ class LeitnerCardUtils:
                 cls.sm2_intervals_days.append(math.ceil(days))
                 days *= 1.7
 
-    init()
+
