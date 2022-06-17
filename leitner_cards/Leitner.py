@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 from abc import abstractmethod
 from collections.abc import MutableSequence
@@ -8,8 +10,8 @@ from typing import overload
 
 
 class LeitnerSkillLevel(Enum):
-    def __init__(self, english: str, level: int):
-        pass
+    # def __init__(self, english: str, level: int):
+    #     pass
 
     NEWBIE = ("Newbie", 0)
     NOVICE = ("Novice", 1)
@@ -36,7 +38,7 @@ class LeitnerSkillLevel(Enum):
     @classmethod
     def get_next(cls, level):
         if not level:
-            return LeitnerSkillLevel.Newbie
+            return LeitnerSkillLevel.NEWBIE
         return level.next()
 
     def get_achievement_points(self) -> int:
@@ -117,8 +119,8 @@ class LeitnerCard:
 
     def __init__(self):
         self.stats: LeitnerCardStats = LeitnerCardStats()
-        self.deck: LeitnerDeck = None
-        self.data: LeitnerCardData = None
+        self.deck: LeitnerDeck | None = None
+        self.data: LeitnerCardData | None = None
 
     def __eq__(self, other) -> bool:
         return self.sort_key() == other.sort_key()
@@ -217,9 +219,11 @@ class LeitnerDeck(MutableSequence[LeitnerCard]):
 
 
 class LeitnerDeckStats:
+
     FULLY_LEARNED_BOX: int = 10
     JUST_LEARNED_BOX: int = 1
     PROFICIENT_BOX: int = 5
+    MAX_CARD_SCORE: float = 60
 
     def __init__(self, deck: LeitnerDeck = None):
         self.active_cards: int = 0
@@ -266,7 +270,6 @@ class LeitnerDeckStats:
              count as "-1" each. Apply "boxlevel" values as bonus points.
         """
 
-        MAX_CARD_SCORE: float = 60
         score: float = 0
         perfect: bool = True
         for card in deck:
@@ -274,10 +277,10 @@ class LeitnerDeckStats:
             if stats.shown_count == 0:
                 continue
             if not stats.correct:
-                score -= MAX_CARD_SCORE
+                score -= self.MAX_CARD_SCORE
                 perfect = False
             avg_show_time: float = stats.total_shown_time / stats.shown_count
-            card_score: float = MAX_CARD_SCORE - avg_show_time
+            card_score: float = self.MAX_CARD_SCORE - avg_show_time
             if card_score < 1:
                 card_score = 1
             score += card_score + stats.leitner_box
@@ -405,5 +408,3 @@ class LeitnerCardUtils:
             for _ in range(15):
                 cls.sm2_intervals_days.append(math.ceil(days))
                 days *= 1.7
-
-
